@@ -1,0 +1,28 @@
+insert into cars (brand,model,year)
+values
+('volvo','p1800',1968),
+('BMW','MI',1978),
+('Toyota','celica',1975);
+
+select * from cars;
+---------------------------------------------
+select brand,year from cars;
+select * from cars;
+
+---PostgreSQL ALTET stament
+
+alter table cars add color varchar(255);
+select * from cars;
+update cars set color ='red' where brand ='volvo';
+update cars set color ='red';
+update cars set color ='red',year =1970
+where brand = 'Toyota';
+---- ALTER COLUMN
+alter table cars alter column year type varchar(4);
+alter table cars alter column year type varchar(20);
+----ALTER DROP
+alter table cars drop column color;
+rollback;
+select * from cars;
+commit;
+delete from cars where color ='red';
