@@ -1,28 +1,42 @@
-insert into cars (brand,model,year)
-values
-('volvo','p1800',1968),
+--- POSTGRESQL CREATE TABLE
+CREATE TABLE CARS(
+BRAND VARCHAR(255),
+MODEL VARCHAR(255),
+YEAR INT
+);
+=========================================================
+---INSERT INTO VALUES
+INSERT INTO CARS (BRAND,MODEL,YEAR)
+VALUES ('VOLVO','P1800',1968),
 ('BMW','MI',1978),
-('Toyota','celica',1975);
+('TOYOTA','CELICA',1975);
+=============================================================
+SELECT * FROM CARS;
+===========================================================
+---FETCH DATA
+SELECT BRAND,YEAR FROM CARS;
+SELECT * FROM CARS;
+====================================================================
+--ADD COLUMN
+ALTER TABLE CARS ADD COLOR VARCHAR(255);
+========================================================================
+---ALTER COLUMN
+ALTER TABLE CARS ALTER COLUMN YEAR TYPE VARCHAR(30);
+=====================================================================
+---DROP COLUMN
+ALTER TABLE CARS DROP COLUMN COLOR;
+================================================================
+---DROP TABLE 
+DROP TABLE CARS;
+===================================================
+---DELETE  
+DELETE FROM CARS WHERE BRAND ='VOLVO';
+DELETE FROM CARS;
+=============================================================
+--- TRUNCATE TABLE 
+TRUNCATE TABLE CARS;
+============================================================
+---UPDATE
+UPDATE CARS SET COLOR = 'RED' WHERE BRAND ='VOLVO';
+UPDATE CARS SET COLOR ='WHITE',YEAR = 1970 WHERE BRAND ='TOYOTA';
 
-select * from cars;
----------------------------------------------
-select brand,year from cars;
-select * from cars;
-
----PostgreSQL ALTET stament
-
-alter table cars add color varchar(255);
-select * from cars;
-update cars set color ='red' where brand ='volvo';
-update cars set color ='red';
-update cars set color ='red',year =1970
-where brand = 'Toyota';
----- ALTER COLUMN
-alter table cars alter column year type varchar(4);
-alter table cars alter column year type varchar(20);
-----ALTER DROP
-alter table cars drop column color;
-rollback;
-select * from cars;
-commit;
-delete from cars where color ='red';
